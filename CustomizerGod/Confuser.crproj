@@ -1,0 +1,8 @@
+<project outputDir="Obfuscated" baseDir="bin" seed="d2w" xmlns="http://confuser.codeplex.com">
+  <rule preset="none" pattern="true">
+    <protection id="rename">
+      <argument name="mode" value="decodable"/>
+    </protection>
+  </rule>
+  <module path="CustomizerGod.exe" snKey="..\Key.snk"/>
+</project>

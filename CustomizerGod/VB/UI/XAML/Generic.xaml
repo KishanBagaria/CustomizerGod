@@ -1,0 +1,156 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <DrawingBrush Viewport="0 0 16 16" ViewportUnits="Absolute" Stretch="None" TileMode="Tile" x:Key="LightCheckerBoard">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing Brush="LightGray">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="0 0 8 8"/>
+                            <RectangleGeometry Rect="8 8 8 8"/>
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="White">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="8 0 8 8"/>
+                            <RectangleGeometry Rect="0 8 8 8"/>
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+    <DrawingBrush Viewport="0 0 16 16" ViewportUnits="Absolute" Stretch="None" TileMode="Tile" x:Key="DarkCheckerBoard">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing Brush="#202020">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="0 0 8 8"/>
+                            <RectangleGeometry Rect="8 8 8 8"/>
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#404040">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="8 0 8 8"/>
+                            <RectangleGeometry Rect="0 8 8 8"/>
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+    <DrawingBrush Viewport="0 0 2 2" ViewportUnits="Absolute" TileMode="Tile" x:Key="BlackWhiteBorder">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing Brush="#3F000000">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0 0 2 2" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#BFFFFFFF">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0 2 2 2"/>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+    <Storyboard x:Key="sbScrollingBackground">
+        <RectAnimation Storyboard.TargetProperty="Background.Viewport" From="0 0 16 16" To="16 16 16 16" Duration="0:0:1.4" RepeatBehavior="Forever" />
+    </Storyboard>
+    <Style TargetType="Button" x:Key="CrossButton">
+        <Style.Resources>
+            <SolidColorBrush x:Key="NormalBackgroundBrush" Color="#000000" />
+            <SolidColorBrush x:Key="NormalBorderBrush" Color="#FFFFFF" />
+            <SolidColorBrush x:Key="NormalForegroundBrush" Color="#8F949B" />
+            <SolidColorBrush x:Key="HoverBackgroundBrush" Color="#C13535" />
+            <SolidColorBrush x:Key="HoverForegroundBrush" Color="#F9EBEB" />
+            <SolidColorBrush x:Key="PressedBackgroundBrush" Color="#431E20" />
+            <SolidColorBrush x:Key="PressedBorderBrush" Color="#110033" />
+            <SolidColorBrush x:Key="PressedForegroundBrush" Color="#F9EBEB" />
+        </Style.Resources>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="MaxHeight" Value="12" />
+        <Setter Property="MaxWidth" Value="12" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse x:Name="BackgroundEllipse" />
+                        <Path x:Name="ButtonPath" Margin="3" Stroke="{StaticResource NormalForegroundBrush}"
+                              StrokeThickness="1.5" StrokeStartLineCap="Square" StrokeEndLineCap="Square"
+                              Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Path.Data>
+                                <PathGeometry>
+                                    <PathGeometry.Figures>
+                                        <PathFigure StartPoint="0,0">
+                                            <LineSegment Point="25,25"/>
+                                        </PathFigure>
+                                        <PathFigure StartPoint="0,25">
+                                            <LineSegment Point="25,0"/>
+                                        </PathFigure>
+                                    </PathGeometry.Figures>
+                                </PathGeometry>
+                            </Path.Data>
+                        </Path>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="BackgroundEllipse" Property="Fill" Value="{StaticResource HoverBackgroundBrush}" />
+                            <Setter TargetName="ButtonPath" Property="Stroke" Value="{StaticResource HoverForegroundBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="BackgroundEllipse" Property="Fill" Value="{StaticResource PressedBackgroundBrush}" />
+                            <Setter TargetName="BackgroundEllipse" Property="Stroke" Value="{StaticResource PressedBorderBrush}" />
+                            <Setter TargetName="ButtonPath" Property="Stroke" Value="{StaticResource PressedForegroundBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type Label}">
+        <Style.Resources>
+            <DropShadowEffect x:Key="Glow" Color="White" BlurRadius="15" ShadowDepth="0" Opacity="0.75" />
+        </Style.Resources>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Label}">
+                    <Grid Effect="{StaticResource Glow}">
+                        <Grid Effect="{StaticResource Glow}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Effect" Value="{StaticResource Glow}"/>
+    </Style>
+    <Style TargetType="{x:Type ScrollViewer}">
+        <Style.Resources>
+            <Style TargetType="{x:Type Rectangle}">
+                <Setter Property="Visibility" Value="Collapsed" />
+            </Style>
+            <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">15</sys:Double>
+            <sys:Double x:Key="{x:Static SystemParameters.HorizontalScrollBarHeightKey}">15</sys:Double>
+        </Style.Resources>
+    </Style>
+    <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource {x:Type ToggleButton}}" x:Key="SegmentedControl">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Margin" Value="{StaticResource SegmentedHorizontalControlMargin}" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Panel.ZIndex" Value="100" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Panel.ZIndex" Value="100" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

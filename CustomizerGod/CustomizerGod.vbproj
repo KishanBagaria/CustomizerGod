@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E4D3D41-40EC-4B4F-BDF2-34EBFAF5B7BE}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CustomizerGod</RootNamespace>
+    <AssemblyName>CustomizerGod</AssemblyName>
+    <MyType>Empty</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DefineTrace>false</DefineTrace>
+    <Prefer32Bit>false</Prefer32Bit>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <StartupObject>Sub Main</StartupObject>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>On</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <SignAssembly>true</SignAssembly>
+    <SignManifests>false</SignManifests>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <IncrementalBuild>true</IncrementalBuild>
+    <OutputPath>obj\</OutputPath>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <DefineConstants>
+    </DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <IncrementalBuild>false</IncrementalBuild>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'VM' ">
+    <DefineConstants>SS=True</DefineConstants>
+    <RemoteDebugEnabled>true</RemoteDebugEnabled>
+    <RemoteDebugMachine>VIRTUAL-PC</RemoteDebugMachine>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Screenshots' ">
+    <DefineConstants>SS=True</DefineConstants>
+    <DefineDebug>false</DefineDebug>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Compile Include="..\..\..\Source\VB.NET\DebugModule.vb">
+      <Link>VB\Debug\DebugModule.vb</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="VB\-\CalloutParser.vb" />
+    <Compile Include="VB\-\Unused.vb" />
+    <Page Include="DesignTimeResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
+    </Page>
+    <Page Include="VB\UI\XAML\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VB\UI\MainWindow\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VB\UI\XAML\10-8.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VB\UI\XAML\7.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VB\UI\XAML\10.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VB\UI\XAML\8.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VB\UI\Dialogs\ImagePreview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Resources\Res.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VB\-\ExtensionMethods.vb" />
+    <Compile Include="VB\-\Paths.vb" />
+    <Compile Include="VB\-\Popups.vb" />
+    <Compile Include="VB\-\IconCache.vb" />
+    <None Include="VB\Files\CMemExec.vb" />
+    <Compile Include="VB\Files\FileInfo.vb" />
+    <Compile Include="VB\-\Async.vb" />
+    <Compile Include="VB\-\Config.vb" />
+    <Compile Include="VB\Platform Invoke\NativeConstants.vb" />
+    <Compile Include="VB\Platform Invoke\NativeEnums.vb" />
+    <Compile Include="VB\Platform Invoke\NativeStructs.vb" />
+    <Compile Include="VB\ResData\DataStrings.vb" />
+    <Compile Include="VB\UI\Dialogs\About.Designer.vb">
+      <DependentUpon>About.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VB\UI\Dialogs\About.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VB\UI\Dialogs\DictionaryViewer.Designer.vb">
+      <DependentUpon>DictionaryViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VB\UI\Dialogs\DictionaryViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VB\UI\Dialogs\Feedback.Designer.vb">
+      <DependentUpon>Feedback.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VB\UI\Dialogs\Feedback.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\PopupStr.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PopupStr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VB\-\App.vb" />
+    <Compile Include="VB\-\Common.vb" />
+    <Compile Include="VB\-\Registry.vb" />
+    <Compile Include="VB\-\Starter.vb" />
+    <Compile Include="VB\-\Web.vb" />
+    <Compile Include="VB\CustomizerGod.Resources\EnumResources.vb" />
+    <Compile Include="VB\CustomizerGod.Resources\GetResource.vb" />
+    <Compile Include="VB\CustomizerGod.Resources\ResFile.vb" />
+    <Compile Include="VB\CustomizerGod.Resources\UpdateResource.vb" />
+    <Compile Include="VB\CustomizerGod.Resources\VersionResource.vb" />
+    <Compile Include="VB\Debug\AppDebugModule.vb" />
+    <Compile Include="VB\Debug\ErrorHandler.vb" />
+    <Compile Include="VB\Debug\Exceptions.vb" />
+    <Compile Include="VB\Files\Backups.vb" />
+    <Compile Include="VB\Files\Explorer.vb" />
+    <Compile Include="VB\Files\PEChecksum.vb" />
+    <Compile Include="VB\Files\Replacer.vb" />
+    <Compile Include="VB\Image\Icon.vb" />
+    <Compile Include="VB\Image\Image.vb" />
+    <Compile Include="VB\Image\Picture.vb" />
+    <Compile Include="VB\Platform Invoke\NativeMethods.vb" />
+    <Compile Include="VB\Platform Invoke\SafeLibraryHandle.vb" />
+    <Compile Include="VB\ResData\ResData10.vb" />
+    <Compile Include="VB\ResData\ResData7.vb" />
+    <Compile Include="VB\ResData\ResData8.vb" />
+    <Compile Include="VB\UI\Dialogs\ImagePreview.xaml.vb" />
+    <Compile Include="VB\UI\Dialogs\SelectFolderDialog.vb" />
+    <Compile Include="VB\UI\MainWindow\MainWindow.xaml.vb" />
+    <Compile Include="VB\UI\MainWindow\Populate.vb" />
+    <Compile Include="VB\UI\MainWindow\ResourceConversion.vb" />
+    <Compile Include="VB\UI\MainWindow\ResourceView.vb" />
+    <Compile Include="VB\UI\MainWindow\Windows10Blur.vb" />
+    <Compile Include="VB\UI\Screenshot.vb" />
+    <Compile Include="VB\UI\Titleless.vb" />
+    <Compile Include="VB\Win32 Resources\ResConstants.vb" />
+    <Compile Include="VB\Win32 Resources\ResImgConversions.vb" />
+    <Compile Include="VB\Win32 Resources\ResTypes.vb" />
+    <Compile Include="VB\-\AssemblyInfo.vb" />
+    <None Include="app.manifest" />
+    <None Include="Key.snk" />
+    <None Include="Resources\SFC" />
+    <Resource Include="Image Resources\d2w.png" />
+    <Resource Include="Image Resources\Transparent.ico" />
+    <None Include="Resources\PsExec.exe" />
+    <None Include="Resources\7za.exe" />
+    <None Include="_Notes\Changelog.txt" />
+    <None Include="_Notes\Beta Testers.txt" />
+    <None Include="_Notes\Changes.txt" />
+    <None Include="_Notes\Name and Price.txt" />
+    <None Include="_Notes\XAML Elements.txt" />
+    <None Include="Icon.ico" />
+    <EmbeddedResource Include="Resources\PopupStr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>PopupStr.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Res.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VB\UI\Dialogs\About.resx">
+      <DependentUpon>About.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VB\UI\Dialogs\DictionaryViewer.resx">
+      <DependentUpon>DictionaryViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VB\UI\Dialogs\Feedback.resx">
+      <DependentUpon>Feedback.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

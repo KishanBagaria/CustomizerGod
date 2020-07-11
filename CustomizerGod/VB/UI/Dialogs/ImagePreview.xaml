@@ -1,0 +1,19 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ImagePreview" x:Name="Window"
+        Icon="/Image Resources/Transparent.ico" WindowStartupLocation="CenterScreen" UseLayoutRounding="True" MinWidth="100" MinHeight="100">
+    <ListBox x:Name="lbResPreview" BorderThickness="0" Tag="NoBd">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="{Binding ToolTip}">
+                    <Image Source="{Binding Image}" RenderOptions.BitmapScalingMode="HighQuality" Margin="5" Height="{Binding Image.PixelHeight}" Width="{Binding Image.PixelWidth}" />
+                    <TextBlock Text="{Binding Name}" Padding="5" Visibility="{Binding NameVisibility}" TextAlignment="Center" />
+                </StackPanel>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+        <ListBox.ItemsPanel>
+            <ItemsPanelTemplate>
+                <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" Loaded="wpResItems_Loaded"/>
+            </ItemsPanelTemplate>
+        </ListBox.ItemsPanel>
+    </ListBox>
+</Window>

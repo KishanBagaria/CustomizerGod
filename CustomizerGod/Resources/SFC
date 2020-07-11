@@ -1,0 +1,8 @@
+@Echo Off
+Title System File Checker - Restore {0}
+Color F0
+Echo | Set /P SFC=SFC {1}
+%WinDir%\System32\SFC.exe {1}
+Echo.
+Echo | Set /P Exit=Press any key to exit...
+Pause > Nul
